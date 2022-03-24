@@ -32,8 +32,8 @@ class Header extends React.Component {
 
   render() {
     return (
-        <Navbar light expand="md" >
-          <Link to="/" className="logo"><img className="logo" src={RcLogo} height="80" alt="rcLogo" /></Link>
+        <Navbar light expand="md" style={{backgroundColor:'#F5C6AA'}} >
+          <Link to="/" className="logo"><img className="logo" src={RcLogo} height="80" style={{borderRadius:'1em'}} alt="rcLogo" /></Link>
           <NavbarToggler onClick={this.toggle} />
             <Collapse className="justify-content-end"  isOpen={this.state.isOpen} navbar>
               <Nav navbar style={{display: "block ruby"}}>
@@ -67,7 +67,7 @@ class Header extends React.Component {
                   <NavLink href="https://github.com/reactstrap/reactstrap">Login | Signup</NavLink>
                 </NavItem>
                   <Input className="mr-sm-2" style={{width: "30%"}} type="search" placeholder="Search" aria-label="Search"/>&nbsp;&nbsp;
-                  <Button className="btn my-2 my-sm-0"   type="submit">Search</Button>
+                  <Button type="submit">Search</Button>
               </Nav>
             </Collapse>
         </Navbar>

@@ -1,9 +1,19 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import './Homepage.css';
-import {CardGroup,Card,CardImg,CardBody,CardTitle,CardSubtitle,CardText,Button} from 'reactstrap'
-// import homeimg from '../../Images/Homeimg.jpg';
-
+import {CardGroup,Card,CardImg,CardBody,CardTitle,CardSubtitle,CardText,Button,Collapse,
+    Navbar,
+    NavbarToggler,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,Input
+    } from 'reactstrap'
+import RcLogo from '../../Images/rcLogo.png';
+import axios from 'axios';
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -18,13 +28,56 @@ class Homepage extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+  componentDidMount()
+  {
+      axios.get('http://localhost:8000/books').then(response => console.log(response));
+  }
   render() {
     return (
-        // <body>
-        //     <main>
         <React.Fragment>
+            <Navbar light expand="md" style={{backgroundColor:'#F5C6AA'}} >
+          <Link to="/" className="logo"><img className="logo" src={RcLogo} height="80" style={{borderRadius:'1em'}} alt="rcLogo" /></Link>
+          <NavbarToggler onClick={this.toggle}  />
+            <Collapse className="justify-content-end"style={{backgroundColor:'#F5C6AA'}}  isOpen={this.state.isOpen} navbar>
+              <Nav navbar style={{display: "block ruby"}}>
+                <NavItem>
+                  <NavLink href="/components/">Home</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">Upload</NavLink>
+                </NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    Category
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem>
+                      Non-Fiction
+                    </DropdownItem>
+                    <DropdownItem>
+                      Fiction
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
+                      Children
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">About Us</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">Login | Signup</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+        </Navbar>
             <div className='body'>
                 <div className="homeimg">
+                    <form className='search'>
+                        <Input style={{width: "40%"}} type="search" placeholder="Search" aria-label="Search"/>&nbsp;&nbsp;
+                        <Button type="submit">Search</Button>
+                    </form>
                     <h1>A room without books is like a body without a soul.</h1>
                 </div>
                 <div className='homecontent'>
@@ -115,8 +168,6 @@ class Homepage extends React.Component {
                 </div>
             </div>
         </React.Fragment>
-    //         </main>
-    //     </body>
     );
   }
 }
