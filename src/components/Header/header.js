@@ -3,7 +3,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -11,7 +10,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Input,Form,Button, FormGroup } from 'reactstrap';
+  Input,Button } from 'reactstrap';
 
 import { Link, withRouter } from "react-router-dom";
 import RcLogo from '../../Images/rcLogo.png';
@@ -30,51 +29,50 @@ class Header extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
     return (
-      <div>
-        <FormGroup row>
-            <Link to="/" className="logo"><img className="logo" src={RcLogo} height="150" alt="rcLogo" /></Link>
-            <Form className="form-inline my-2 my-lg-0">
-                <Input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                <Button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</Button>
-            </Form>
-        </FormGroup>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <Navbar light expand="md" >
+          <Link to="/" className="logo"><img className="logo" src={RcLogo} height="80" alt="rcLogo" /></Link>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
-          </Collapse>
+            <Collapse className="justify-content-end"  isOpen={this.state.isOpen} navbar>
+              <Nav navbar style={{display: "block ruby"}}>
+                <NavItem>
+                  <NavLink href="/components/">Home</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">Upload</NavLink>
+                </NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    Category
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem>
+                      Non-Fiction
+                    </DropdownItem>
+                    <DropdownItem>
+                      Fiction
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
+                      Children
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">About Us</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">Login | Signup</NavLink>
+                </NavItem>
+                  <Input className="mr-sm-2" style={{width: "30%"}} type="search" placeholder="Search" aria-label="Search"/>&nbsp;&nbsp;
+                  <Button className="btn my-2 my-sm-0"   type="submit">Search</Button>
+              </Nav>
+            </Collapse>
         </Navbar>
-      </div>
+      
     );
   }
 }
 export default withRouter(Header);
-    
-
