@@ -20,7 +20,8 @@ class Homepage extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+        bookdata: [],
+        isOpen: false
     };
   }
   toggle() {
@@ -30,10 +31,15 @@ class Homepage extends React.Component {
   }
   componentDidMount()
   {
-      axios.get('http://localhost:8000/books').then(response => console.log(response));
+      axios.get('http://localhost:8000/books')
+        .then(response => {
+            response.data.books.map(book => this.state.bookdata.push(book));
+            console.log(this.state.bookdata.map(book => book));
+        });
   }
   render() {
     return (
+        
         <React.Fragment>
             <Navbar light expand="md" style={{backgroundColor:'#F5C6AA'}} >
           <Link to="/" className="logo"><img className="logo" src={RcLogo} height="80" style={{borderRadius:'1em'}} alt="rcLogo" /></Link>
@@ -97,7 +103,9 @@ class Homepage extends React.Component {
                                 />
                                 <CardBody>
                                 <CardTitle tag="h5">
-                                    Card title
+                                   {
+                                       this.state.bookdata.map(book => book.title[0])
+                                   }
                                 </CardTitle>
                                 <CardSubtitle
                                     className="mb-2 text-muted"
