@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from "react-router-dom";
 import './Homepage.css';
-import {CardGroup,Card,CardImg,CardBody,CardTitle,CardSubtitle,CardText,Button,Collapse,
+import {CardGroup,Card,CardImg,CardBody,CardTitle,CardText,Button,Collapse,
     Navbar,
     NavbarToggler,
     Nav,
@@ -23,15 +23,17 @@ class Homepage extends React.Component {
         bookdata: [],
         isOpen: false
     };
+  }
+
+  componentDidMount() {
 
     axios.get('http://localhost:8000/books')
         .then(response => {
-            response.data.books.map(book => this.state.bookdata.push(book));
-            console.log(this.state.bookdata.map(book => book.title));
-            // console.log(this.state.bookdata[0].title);
-            
+            let Response = response.data.books;
+            this.setState({bookdata: Response});
         });
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -90,14 +92,13 @@ class Homepage extends React.Component {
                 <div className='introduction'>
                     <h1>Introduction : </h1>
                     <p>Find and read books by seeing user reviews on the book, and keep track of the book you want to read. Be Part of the community of book lovers on Reader's Choice.</p>
-                    {
-                      this.state.bookdata.map(books => <p>{books.title}</p>)
-                    }
                 </div>
                 <div className='featured'>
                     <h1>Our featured Books</h1>
                     <CardGroup>
-                        <Card>
+                    {
+                      this.state.bookdata.slice(0,3).map(books => (
+                        <Card key={books._id}>
                             <CardImg
                             alt="Card image cap"
                             src="https://picsum.photos/318/180"
@@ -105,67 +106,25 @@ class Homepage extends React.Component {
                             width="100%"
                             />
                             <CardBody>
+                            <CardTitle  tag="h3">
+                              {books.title}
+                            </CardTitle>
+                            <CardTitle tag="h4">
+                              Author: {books.authorName}
+                            </CardTitle>
                             <CardTitle tag="h5">
-                              Title
+                              Publisher: {books.publisher}
                             </CardTitle>
                             <CardText>
-                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                                {books.synopsis}
                             </CardText>
                             <Button>
                                 Button
                             </Button>
                             </CardBody>
                         </Card>
-                        <Card>
-                            <CardImg
-                            alt="Card image cap"
-                            src="https://picsum.photos/318/180"
-                            top
-                            width="100%"
-                            />
-                            <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <CardSubtitle
-                                className="mb-2 text-muted"
-                                tag="h6"
-                            >
-                                Card subtitle
-                            </CardSubtitle>
-                            <CardText>
-                                This card has supporting text below as a natural lead-in to additional content.
-                            </CardText>
-                            <Button>
-                                Button
-                            </Button>
-                            </CardBody>
-                        </Card>
-                        <Card>
-                            <CardImg
-                            alt="Card image cap"
-                            src="https://picsum.photos/318/180"
-                            top
-                            width="100%"
-                            />
-                            <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <CardSubtitle
-                                className="mb-2 text-muted"
-                                tag="h6"
-                            >
-                                Card subtitle
-                            </CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
-                            </CardText>
-                            <Button>
-                                Button
-                            </Button>
-                            </CardBody>
-                        </Card>
+                        ))
+                    }
                     </CardGroup>
                 </div>
             </div>
