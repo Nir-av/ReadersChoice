@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Route, Switch, BrowserRouter,} from 'react-router-dom';
 import routes from './routes';
 import './App.css';
-
+import Review from './components/reviewPage/review';
 class App extends Component {
 
   constructor(props){
@@ -12,7 +12,8 @@ class App extends Component {
 
   render() {
     return(
-      <React.Fragment>
+      <Review/>
+      /*<React.Fragment>
         <div>
           <BrowserRouter>
             <Switch>
@@ -24,7 +25,7 @@ class App extends Component {
             </Switch>
           </BrowserRouter>
         </div>
-      </React.Fragment>
+      </React.Fragment>*/
     );
   }
 }
