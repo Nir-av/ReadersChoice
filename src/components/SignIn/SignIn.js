@@ -4,7 +4,6 @@ import { Link, withRouter } from "react-router-dom";
 import RcLogo from '../../Images/rcLogo.png';
 import axios from "axios";
 import './SignIn.css';
-import Header from '../Header/header';
 
 class SignIn extends Component 
 {
@@ -76,7 +75,6 @@ class SignIn extends Component
     render() {
         return (
            <React.Fragment>
-                    <Header/>
                     <div className="container my-5">
                         <Row className="justify-content-center">
                             <Col md="8" lg="6" xl="5">
