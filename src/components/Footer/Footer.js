@@ -1,61 +1,74 @@
-import React from "react";
-import { Col, Container, Row, Form, FormGroup,Label,Input } from "reactstrap";
-import { withRouter } from "react-router-dom";
+import React,{Component} from "react";
+import "./style.css";
+import {withRouter } from "react-router-dom";
 
-class Footer extends React.Component {
-    
+class Footer extends Component 
+{
     render() {
-      return (
-          <Footer color="blue" className="font-small pt-4 mt-4">
-            <Container fluid className="text-center text-md-left">
-            <Row>
-                <Col md="6">
-                <h5 className="title">Stay Connected</h5>
-                <p>
-                  <Form inline>
-                      <FormGroup>
-                          <Label
-                          for="exampleEmail"
-                          hidden
-                          >
-                          Email
-                          </Label>
-                          <Input
-                          id="exampleEmail"
-                          name="email"
-                          placeholder="Email"
-                          type="email"
-                          />
-                      </FormGroup>
-                  </Form>
-                </p>
-                </Col>
-                <Col md="6">
-                <h5 className="title">Links</h5>
-                <ul>
-                    <li className="list-unstyled">
-                    <a href="#!">Link 1</a>
-                    </li>
-                    <li className="list-unstyled">
-                    <a href="#!">Link 2</a>
-                    </li>
-                    <li className="list-unstyled">
-                    <a href="#!">Link 3</a>
-                    </li>
-                    <li className="list-unstyled">
-                    <a href="#!">Link 4</a>
-                    </li>
-                </ul>
-                </Col>
-            </Row>
-            </Container>
-            <div className="footer-copyright text-center py-3">
-            <Container fluid>
-                &copy; {new Date().getFullYear()} Copyright: readerschoice
-            </Container>
+        return (
+            <div className='Box'>
+            <h1 style={{ color: "green",
+                        textAlign: "center",
+                        marginTop: "-50px" }}>
+                GeeksforGeeks: A Computer Science Portal for Geeks
+            </h1>
+            <div className="Container">
+                <div className="Row">
+                <div className="Column">
+                    <p className="Heading">About Us</p>
+                    <a className="Footerlink" href="#">Aim</a >
+                    <a className="Footerlink" href="#">Vision</a >
+                    <a className="Footerlink" href="#">Testimonials</a >
+                </div>
+                <div className="Column">
+                    <p className="Heading">Services</p>
+                    <a className="Footerlink" href="#">Writing</a >
+                    <a className="Footerlink" href="#">Internships</a >
+                    <a className="Footerlink" href="#">Coding</a >
+                    <a className="Footerlink" href="#">Teaching</a >
+                </div>
+                <div className="Column">
+                    <p className="Heading">Contact Us</p>
+                    <a className="Footerlink"  href="#">Uttar Pradesh</a >
+                    <a className="Footerlink" href="#">Ahemdabad</a >
+                    <a className="Footerlink" href="#">Indore</a >
+                    <a className="Footerlink" href="#">Mumbai</a >
+                </div>
+                <div className="Column">
+                    <p className="Heading">Social Media</p>
+                    <a className="Footerlink" href="#">
+                    <i className="fab fa-facebook-f">
+                        <span style={{ marginLeft: "10px" }}>
+                        Facebook
+                        </span>
+                    </i>
+                    </a>
+                    <a className="Footerlink" href="#">
+                    <i className="fab fa-instagram">
+                        <span style={{ marginLeft: "10px" }}>
+                        Instagram
+                        </span>
+                    </i>
+                    </a>
+                    <a className="Footerlink" href="#">
+                    <i className="fab fa-twitter">
+                        <span style={{ marginLeft: "10px" }}>
+                        Twitter
+                        </span>
+                    </i>
+                    </a>
+                    <a className="Footerlink" href="#">
+                    <i className="fab fa-youtube">
+                        <span style={{ marginLeft: "10px" }}>
+                        Youtube
+                        </span>
+                    </i>
+                    </a>
+                </div>
+                </div>
             </div>
-        </Footer>
-      );
+            </div>
+        );
     }
-  }
-  export default withRouter(Footer);
+};
+export default withRouter(Footer);
