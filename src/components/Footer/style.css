@@ -1,6 +1,6 @@
 .Box{
     padding: 80px 60px;
-    background: black;
+    background: #F5C6AA;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -9,14 +9,41 @@
     }
 }
 
-.Container{
+.form
+{
     display: flex;
-	flex-direction: column;
-	justify-content: center;
-	max-width: 1000px;
-	margin: 0 auto;
+    flex-direction: column;
 }
-.Column{
+.social
+{
+    padding-top: 20px;
+}
+.social a
+{
+    color: black;
+    padding-left: 5%;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+.social a:hover
+{
+    color: grey;
+}
+.social p
+{
+    text-align: left;
+    font-size: 2.5em;
+}
+.section1
+{
+    display: flex;
+    flex-direction: column;
+}
+div
+{
+    background: #F5C6AA;
+}
+/* .Column{
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -49,4 +76,4 @@
     color: #fff;
     margin-bottom: 40px;
     font-weight: bold;
-}
+} */
