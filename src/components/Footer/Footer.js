@@ -3,44 +3,31 @@ import { Col, Container, Row, Form, FormGroup,Label,Input } from "reactstrap";
 import { withRouter } from "react-router-dom";
 
 class Footer extends React.Component {
-    constructor(props) {
-      super(props);
-  
-      this.toggle = this.toggle.bind(this);
-      this.state = {
-        isOpen: false
-      };
-    }
-    toggle() {
-      this.setState({
-        isOpen: !this.state.isOpen
-      });
-    }
-  
+    
     render() {
       return (
-            <Footer color="blue" className="font-small pt-4 mt-4">
+          <Footer color="blue" className="font-small pt-4 mt-4">
             <Container fluid className="text-center text-md-left">
             <Row>
                 <Col md="6">
                 <h5 className="title">Stay Connected</h5>
                 <p>
-                <Form inline>
-                    <FormGroup>
-                        <Label
-                        for="exampleEmail"
-                        hidden
-                        >
-                        Email
-                        </Label>
-                        <Input
-                        id="exampleEmail"
-                        name="email"
-                        placeholder="Email"
-                        type="email"
-                        />
-                    </FormGroup>
-                </Form>
+                  <Form inline>
+                      <FormGroup>
+                          <Label
+                          for="exampleEmail"
+                          hidden
+                          >
+                          Email
+                          </Label>
+                          <Input
+                          id="exampleEmail"
+                          name="email"
+                          placeholder="Email"
+                          type="email"
+                          />
+                      </FormGroup>
+                  </Form>
                 </p>
                 </Col>
                 <Col md="6">
@@ -64,11 +51,11 @@ class Footer extends React.Component {
             </Container>
             <div className="footer-copyright text-center py-3">
             <Container fluid>
-                &copy; {new Date().getFullYear()} Copyright: <a href="https://www.ootstrap.com"> ootstrap.com </a>
+                &copy; {new Date().getFullYear()} Copyright: readerschoice
             </Container>
             </div>
         </Footer>
-        );
+      );
     }
   }
   export default withRouter(Footer);

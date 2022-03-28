@@ -120,7 +120,7 @@ class SignIn extends Component
                             </Col>
                         </Row>
                     </div>
-                    <Footer></Footer>
+                    {/* <Footer></Footer> */}
             </React.Fragment>
         );
     }
