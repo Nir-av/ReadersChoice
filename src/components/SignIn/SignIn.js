@@ -4,6 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import RcLogo from '../../Images/rcLogo.png';
 import axios from "axios";
 import './SignIn.css';
+import Footer from "../Footer/Footer";
 
 class SignIn extends Component 
 {
@@ -119,6 +120,7 @@ class SignIn extends Component
                             </Col>
                         </Row>
                     </div>
+                    <Footer></Footer>
             </React.Fragment>
         );
     }
