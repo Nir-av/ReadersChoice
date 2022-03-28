@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Route, Switch, BrowserRouter,} from 'react-router-dom';
 import routes from './routes';
 import './App.css';
+import BookUpload from './components/BookUpload/BookUpload';
 
 class App extends Component {
 
@@ -13,7 +14,7 @@ class App extends Component {
   render() {
     return(
       <React.Fragment>
-        <div>
+        {/* <div>
           <BrowserRouter>
             <Switch>
               {
@@ -23,7 +24,8 @@ class App extends Component {
               }
             </Switch>
           </BrowserRouter>
-        </div>
+        </div> */}
+        <BookUpload></BookUpload>
       </React.Fragment>
     );
   }
