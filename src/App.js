@@ -13,17 +13,7 @@ class App extends Component {
   render() {
     return(
       <React.Fragment>
-        {/* <div>
-          <BrowserRouter>
-            <Switch>
-              {
-                routes.map((route, idx) => 
-                  <Route exact path = {route.path} component = {route.component} key = {idx} /> 
-                )
-              }
-            </Switch>
-          </BrowserRouter>
-        </div> */}
+        <Header></Header>
         <Footer></Footer>
       </React.Fragment>
     );
