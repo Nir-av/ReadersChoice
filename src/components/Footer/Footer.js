@@ -2,6 +2,7 @@ import React,{Component} from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import { Label,FormGroup,Col,Input,Button,Form,Row } from "reactstrap";
 import { withRouter } from "react-router-dom";
+import './style.css';
 class Footer extends Component 
 {
     render() {
