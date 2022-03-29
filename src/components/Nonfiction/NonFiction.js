@@ -37,12 +37,7 @@ class NonFiction extends Component
                         this.state.nonFictionData.map(book => (
                             <CardGroup style={{marginBottom: "5%",borderRadius:"50px"}} key={book._id}>
                                 <Card style={{display:"flex",flexDirection:"row",backgroundColor:"#FDF6F0",boxShadow:"5px 10px #888888"}}>
-                                    <CardImg
-                                    alt="Card image cap"
-                                    src={book.imageURL}
-                                    top
-                                    width="100%"
-                                    />
+                                    <CardImg alt="Card image cap" src={book.imageURL}/>
                                     <CardBody style={{backgroundColor:"#FDF6F0"}}>
                                         <CardTitle tag="h3">
                                             {book.title}

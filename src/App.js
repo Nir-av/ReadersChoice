@@ -17,8 +17,8 @@ class App extends Component {
     return(
       <React.Fragment>
         <Fiction></Fiction>
-        {/* <NonFiction></NonFiction> */}
-        {/* <Children></Children> */}
+        <NonFiction></NonFiction>
+        <Children></Children>
       </React.Fragment>
     );
   }
