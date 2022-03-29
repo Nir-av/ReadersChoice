@@ -16,8 +16,8 @@ class App extends Component {
   render() {
     return(
       <React.Fragment>
-        {/* <Fiction></Fiction> */}
-        <NonFiction></NonFiction>
+        <Fiction></Fiction>
+        {/* <NonFiction></NonFiction> */}
         {/* <Children></Children> */}
       </React.Fragment>
     );

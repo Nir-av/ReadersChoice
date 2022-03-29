@@ -1,68 +1,73 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import {CardBody,CardGroup,CardTitle,CardImg,CardSubtitle,CardText,Button,Card} from "reactstrap";
-import './style.css'
+import './style.css';
+import axios from "axios";
+
 class Children extends Component 
 {
+    constructor(props){
+        super(props);
+        this.state = {
+            booksData: [],
+            childrenData: [] 
+        }
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:8000/books')
+            .then(response => {
+                let children = "Children";
+                let Response = response.data.books;
+                this.setState({booksData: Response});
+                this.state.booksData.map(books => {
+                   if(books.category == children){
+                        let childrenD = books;
+                        this.setState({childrenData: this.state.childrenData.concat(childrenD)});
+                   }
+                });
+            });
+    }
+
     render() {
         return (
            <React.Fragment>
                 <div className="list">
                     <h1>Children Books</h1>
-                    <CardGroup>
-                        <Card style={{display:"flex",flexDirection:"row"}}>
-                            <CardImg
-                            alt="Card image cap"
-                            src="https://picsum.photos/256/186"
-                            top
-                            width="1%"
-                            />
-                            <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <CardSubtitle
-                                className="mb-2 text-muted"
-                                tag="h6"
-                            >
-                                Card subtitle
-                            </CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                            </CardText>
-                            <Button>
-                                Button
-                            </Button>
-                            </CardBody>
-                        </Card>
-                    </CardGroup>
-                    <CardGroup>
-                        <Card style={{display:"flex",flexDirection:"row"}}>
-                            <CardImg
-                            alt="Card image cap"
-                            src="https://picsum.photos/256/186"
-                            top
-                            width="1%"
-                            />
-                            <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <CardSubtitle
-                                className="mb-2 text-muted"
-                                tag="h6"
-                            >
-                                Card subtitle
-                            </CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                            </CardText>
-                            <Button>
-                                Button
-                            </Button>
-                            </CardBody>
-                        </Card>
-                    </CardGroup>
+                    {
+                        this.state.childrenData.map(book => (
+                            <CardGroup style={{marginBottom: "5%",borderRadius:"50px"}} key={book._id}>
+                                <Card style={{display:"flex",flexDirection:"row",backgroundColor:"#FDF6F0",boxShadow:"5px 10px #888888"}}>
+                                    <CardImg
+                                    alt="Card image cap"
+                                    src={book.imageURL}
+                                    top
+                                    width="100%"
+                                    />
+                                    <CardBody style={{backgroundColor:"#FDF6F0"}}>
+                                        <CardTitle tag="h3">
+                                            {book.title}
+                                        </CardTitle>
+                                        <CardTitle tag="h4">
+                                        Author Name: {book.authorName}
+                                        </CardTitle>
+                                        <CardTitle tag="h5">
+                                        Publisher: {book.publisher}
+                                        </CardTitle>
+                                        <CardTitle tag="h5">
+                                        Release Date: {book.release_date}
+                                        </CardTitle>
+                                        <CardText>
+                                            {book.synopsis}
+                                        </CardText>
+                                        <Button type="submit">
+                                            Review
+                                        </Button>
+                                    </CardBody>
+                                </Card>
+                            </CardGroup>
+                        ))
+                    }
                 </div>
             </React.Fragment>
         );

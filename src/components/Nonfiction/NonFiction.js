@@ -25,8 +25,9 @@ class NonFiction extends Component
                         this.setState({nonFictionData: this.state.nonFictionData.concat(nFData)});
                    }
                 });
-            })
-            }
+            });
+    }
+
     render() {
         return (
            <React.Fragment>
@@ -38,7 +39,7 @@ class NonFiction extends Component
                                 <Card style={{display:"flex",flexDirection:"row",backgroundColor:"#FDF6F0",boxShadow:"5px 10px #888888"}}>
                                     <CardImg
                                     alt="Card image cap"
-                                    src="https://picsum.photos/256/186"
+                                    src={book.imageURL}
                                     top
                                     width="100%"
                                     />
@@ -66,7 +67,6 @@ class NonFiction extends Component
                             </CardGroup>
                         ))
                     }
-                   
                 </div>
             </React.Fragment>
         );
