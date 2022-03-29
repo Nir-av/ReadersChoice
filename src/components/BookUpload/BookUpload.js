@@ -33,8 +33,9 @@ class BookUpload extends Component
                                 <Label for="ReleaseDate"sm={1}>Date:</Label>
                                 <Col sm={2} style={{backgroundColor: "#FDF6F0"}}><Input id="ReleaseDate" name="ReleaseDate" placeholder="Release Date" type="date"/></Col>
                                 <Col sm={2} style={{backgroundColor: "#FDF6F0"}}><Label for="PosterUrl">Enter Book Poster Url:</Label></Col>
-                                <Col sm={2} style={{backgroundColor: "#FDF6F0"}}><Input id="PosterUrl" name="PosterUrl" placeholder="PosterUrl" type="url"/></Col>
+                                <Col sm={4} style={{backgroundColor: "#FDF6F0"}}><Input id="PosterUrl" name="PosterUrl" placeholder="PosterUrl" type="url"/></Col>
                             </FormGroup>
+                            <Button style={{marginRight:"2%"}} type="submit">Submit</Button><Button type="reset">Cancel</Button>
                         </Form>
                     </div>
                 </div>
