@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from "react-router-dom";
 import {CardGroup,CardBody,CardTitle,Card,CardImg,CardSubtitle,CardText,Button,
-Accordion,AccordionItem,AccordionHeader} from 'reactstrap';
+Accordion,AccordionItem,AccordionHeader,Input,Label,FormGroup,Col} from 'reactstrap';
 import './review.css';
 import bookImg from '../../Images/book.png';
 
@@ -18,7 +18,7 @@ class Review extends React.Component {
     <div className='container'>
         <div className ='part1'>
             <div className='bookimage'>
-                <img src={bookImg} alt='book image'/>
+                <img src={bookImg} alt='book'/>
             </div>
             <div className='synopsis'>
                 <h1>Synopsis</h1>
@@ -35,6 +35,47 @@ class Review extends React.Component {
 
             </div>
 
+            <div className='userreviews'>
+                <h3> Add reviews </h3>
+                <div>
+                    <FormGroup row>
+                    <Label
+                    for="username"
+                    sm={2}
+                    >
+                    Username:
+                    </Label>
+                    <Col sm={10}>
+                    <Input
+                        id="username"
+                        name="username"
+                        placeholder="enter your username "
+                        type="text"
+                    />
+                    </Col>
+                    </FormGroup>
+
+                    <FormGroup row>
+                        <Label
+                        for="review"
+                        sm={2}
+                        >
+                        Add Review
+                        </Label>
+                        <Col sm={10}>
+                        <Input
+                            id="addreview"
+                            name="addreview"
+                            type="textarea"
+                        />
+                        </Col>
+                    </FormGroup>
+                    <Button>
+                        Submit
+                    </Button>
+                </div>
+            </div>
+
             <div className='reviews'>
                 <Accordion
                     open="1"
@@ -44,7 +85,7 @@ class Review extends React.Component {
                     <AccordionHeader targetId="1">
                         Accordion Item 1
                     </AccordionHeader>
-                    <AccordionItem accordionId="1">
+                    <AccordionItem accordionid="1">
                         <strong>
                         This is the first item's accordion body.
                         </strong>
@@ -59,7 +100,7 @@ class Review extends React.Component {
                     <AccordionHeader targetId="2">
                         Accordion Item 2
                     </AccordionHeader>
-                    <AccordionItem accordionId="2">
+                    <AccordionItem accordionid="2">
                         <strong>
                         This is the second item's accordion body.
                         </strong>
@@ -74,7 +115,7 @@ class Review extends React.Component {
                     <AccordionHeader targetId="3">
                         Accordion Item 3
                     </AccordionHeader>
-                    <AccordionItem accordionId="3">
+                    <AccordionItem accordionid="3">
                         <strong>
                         This is the third item's accordion body.
                         </strong>
