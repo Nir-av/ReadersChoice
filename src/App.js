@@ -13,7 +13,6 @@ class App extends Component {
   render() {
     return(
       <React.Fragment>
-        <Header></Header>
         <Footer></Footer>
       </React.Fragment>
     );
