@@ -101,7 +101,7 @@ class Homepage extends React.Component {
                         <Card key={books._id}>
                             <CardImg
                             alt="Card image cap"
-                            src="https://picsum.photos/318/180"
+                            src={books.imageURL}
                             top
                             width="100%"
                             />
