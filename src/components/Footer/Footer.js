@@ -12,18 +12,15 @@ class Footer extends Component
         <MDBRow>
           <MDBCol md="6" style={{background:"#F5C6AA",paddingLeft:"10%",color:"black",paddingTop:"1%"}}>
             <h5 className="title">Stay Connected</h5>
-            <p style={{background:"#F5C6AA"}}>
-                <Form style={{background:"#F5C6AA"}}>
-                    <FormGroup row style={{background:"#F5C6AA"}}>
-                            <Label for="exampleEmail" sm={1}>
-                            Email
-                            </Label>
-                            <Col sm={10} style={{background:"#F5C6AA"}}><Input id="exampleEmail" name="email" placeholder="Email" type="email"/></Col> 
-                            <Row style={{background:"#F5C6AA"}}><Button>Subscribe!</Button></Row>
-                                 
-                    </FormGroup>
-                </Form>
-            </p>
+              <Form style={{background:"#F5C6AA"}}>
+                  <FormGroup row style={{background:"#F5C6AA"}}>
+                          <Label for="exampleEmail" sm={1}>
+                          Email
+                          </Label>
+                          <Col sm={10} style={{background:"#F5C6AA"}}><Input id="exampleEmail" name="email" placeholder="Email" type="email"/></Col> 
+                          <Button style={{backgroundColor:"black"}}>Subscribe!</Button>    
+                  </FormGroup>
+              </Form>
           </MDBCol>
           
           <MDBCol md="6" style={{background:"#F5C6AA",paddingTop:"2%",paddingLeft:"15%",color:"black"}}>
@@ -43,12 +40,12 @@ class Footer extends Component
               </li>
             </ul>
           </MDBCol>
-        </MDBRow>
-        <MDBRow style={{background:"#F5C6AA", paddingLeft:"10%",color:"black", paddingBottom:"1%"}}>
+          <MDBCol style={{background:"#F5C6AA", paddingLeft:"10%",color:"black", paddingBottom:"1%"}}>
             <h5 className="title">Social Media</h5>
-            <a href="#!" style={{color:"black"}}>Link 2</a>
-            <a href="#!" style={{color:"black"}}>Link 2</a>
-            <a href="#!" style={{color:"black"}}>Link 2</a>
+            <a href="https://www.facebook.com/" style={{color:"black",paddingLeft:"2%"}}>Facebook</a>
+            <a href="https://www.instagram.com/" style={{color:"black",paddingLeft:"2%"}}>Instagram</a>
+            <a href="https://www.twitter.com/" style={{color:"black",paddingLeft:"2%"}}>Twitter</a>
+        </MDBCol>
         </MDBRow>
       </MDBContainer>
       <div className="footer-copyright text-center py-3" style={{background:"#BED7D1"}} >
