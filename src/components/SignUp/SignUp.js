@@ -152,7 +152,7 @@ class SignUp extends Component
                                                     <Button outline color="success" type="submit" onClick={this.submitBtnClicked}>Submit</Button>&nbsp;&nbsp;&nbsp;
                                                     <Button outline color="danger" type="cancel" onClick={this.canelBtnClicked}>Cancel</Button>
                                                 </div>
-                                                Are you an existing user? <Link to="/signin">Click Here!</Link>
+                                                <Link to="/signin">Click Here!</Link> To Sign In.
                                             </Form>
                                         </div>
                                     </CardBody>

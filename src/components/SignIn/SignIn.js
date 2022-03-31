@@ -59,8 +59,7 @@ class SignIn extends Component
             axios.post('http://localhost:8000/users/login', data)
             .then(response => {
                 this.setState({noError: true});
-                console.log(response);
-                console.log("Login success!");
+                this.props.history.push('/');
                 this.clearFields();
             }) 
             .catch(err => {
@@ -114,7 +113,7 @@ class SignIn extends Component
                                                     <Button outline color="success" type="submit" onClick={this.loginBtnClicked}>Login</Button>&nbsp;&nbsp;&nbsp;
                                                     <Button outline color="danger" type="cancel" onClick={this.cancelBtnClicked}>Cancel</Button>
                                                 </div>
-                                                <Link to="/signup">Click Here!</Link> To Sign Up
+                                                <Link to="/signup">Click Here!</Link> To Sign Up.
                                             </Form>
                                         </div>
                                     </CardBody>

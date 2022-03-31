@@ -30,6 +30,11 @@ class Fiction extends Component
             });
     }
 
+    reviewBtnClicked = (book_id, e) => {
+        e.preventDefault();
+        this.props.history.push('/review/' + book_id);
+    }
+
     render() {
         return (
            <React.Fragment>
@@ -63,7 +68,7 @@ class Fiction extends Component
                                         <CardText>
                                             {book.synopsis}
                                         </CardText>
-                                        <Button type="submit">
+                                        <Button type="submit" onClick={(e) => this.reviewBtnClicked(book._id, e)}>
                                             Review
                                         </Button>
                                     </CardBody>

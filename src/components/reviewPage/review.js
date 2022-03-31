@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter} from "react-router-dom";
 import {CardGroup, Alert, CardBody, CardTitle, Card, CardImg, CardText, Button, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Input,Label,FormGroup,Col} from 'reactstrap';
 import './review.css';
-import bookImg from '../../Images/book.png';
 import axios from 'axios'; 
 import Header from '../Header/header';
 import Footer from '../Footer/Footer';
@@ -13,7 +12,9 @@ class Review extends React.Component {
         super(props);
         this.state = {
             booksData: [],
-            bookreviews: [],
+            bookReviews: [],
+            filteredReview: [],
+            book: [],
             userName: "",
             addReview: "",
             hasError: false,
@@ -22,18 +23,32 @@ class Review extends React.Component {
     }
 
     componentDidMount() {
+
+        let book_id = this.props.match.params.book_id;
+
         axios.get('http://localhost:8000/books')
             .then(response => {
                 let Response = response.data.books;
                 this.setState({booksData: Response});
-            });
+        });
         
         axios.get('http://localhost:8000/booksReview')
             .then(response => {
                 let Reviews = response.data.reviews;
-                this.setState({bookreviews: Reviews})
-            })
+                this.setState({bookReviews: Reviews});
+                this.state.bookReviews.map(review => {
+                    if (review.bookId === book_id) {
+                        this.setState({filteredReview: this.state.filteredReview.concat(review)});
+                        console.log(this.state.filteredReview);
+                    }
+                })  
+        });
         
+        axios.get('http://localhost:8000/books/' + book_id)
+            .then(response => {
+                let Response = response.data.book;
+                this.setState({book: Response});
+        });
     }
 
     handleChange = async (text, type) => {
@@ -59,11 +74,12 @@ class Review extends React.Component {
         else{
             var data = {
                 userName: this.state.userName,
+                bookId: this.props.match.params.book_id,
                 addReview: this.state.addReview
             }
             console.log(data);
             axios.post('http://localhost:8000/booksReview', data)
-                .then(response => console.log(response))
+                .then(response => window.location.reload(true))
         }
     }
 
@@ -74,20 +90,19 @@ class Review extends React.Component {
             <div className='container'>
                 <div className ='part1'>
                     <div className='bookimage'>
-                        <img src={bookImg} alt='book'/>
+                        <img src={this.state.book.imageURL} alt='book'/>
                     </div>
                     <div className='synopsis'>
-                        <h1>Synopsis</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl purus in mollis nunc. Augue neque gravida in fermentum et sollicitudin ac orci. Posuere morbi leo urna molestie at elementum eu facilisis sed. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer. Tincidunt lobortis feugiat vivamus at. Odio euismod lacinia at quis risus sed vulputate odio ut. Dolor purus non enim praesent elementum facilisis leo. Donec adipiscing tristique risus nec feugiat. Elit sed vulputate mi sit amet mauris. Ultricies lacus sed turpis tincidunt id. Eu non diam phasellus vestibulum lorem sed risus ultricies. Eros in cursus turpis massa tincidunt dui ut. Elit ullamcorper dignissim cras tincidunt lobortis. Egestas maecenas pharetra convallis posuere morbi leo.</p>
+                        <h1>{this.state.book.title}</h1>
+                        <p>{this.state.book.synopsis}</p>
                     </div>
                 </div>
 
                 <div className='part-2'>
                     <div className='info'>
-                        <h2>Rating</h2>
-                        <h2>Author Name</h2>
-                        <h2>Publisher</h2>
-                        <h2>Date of release</h2>
+                        <h2>Author Name: {this.state.book.authorName}</h2>
+                        <h2>Publisher: {this.state.book.publisher}</h2>
+                        <h2>Date of release: {this.state.book.release_date}</h2>
 
                     </div>
 
@@ -118,14 +133,14 @@ class Review extends React.Component {
                         <h3>User Reviews</h3>
                         <ListGroup>
                             {
-                                this.state.bookreviews.map(reviews => (
+                                this.state.filteredReview.map(reviews => (
                                 <ListGroupItem key={reviews._id}>
                                     <ListGroupItemHeading>
                                         {reviews.userName}
                                     </ListGroupItemHeading>
                                     <ListGroupItemText>
                                         {reviews.addReview}
-                                    </ListGroupItemText>
+                                    </ListGroupItemText> 
                                 </ListGroupItem>
                                 ))
                             }

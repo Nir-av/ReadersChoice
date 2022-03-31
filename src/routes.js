@@ -16,7 +16,7 @@ const routes = [
     {path: '/children', component: Children},
     {path: '/fiction', component: Fiction},
     {path: '/non_fiction', component: NonFiction},
-    {path: '/review/:bookId', component: ReviewPage},
+    {path: '/review/:book_id', component: ReviewPage},
     {path: '/', component: HomePage},
 ];
 
