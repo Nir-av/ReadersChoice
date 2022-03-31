@@ -3,7 +3,6 @@ import { withRouter, Route, Switch, BrowserRouter,} from 'react-router-dom';
 import routes from './routes';
 import './App.css';
 import Homepage from './components/Homepage/Homepage';
-
 class App extends Component {
 
   constructor(props){
