@@ -88,9 +88,9 @@ class Review extends React.Component {
 
                     </div>
 
-                    <div className='userreviews' style={{marginTop: "10%"}}>
-                        <h3> Add reviews </h3>
-                        <div>
+                    <div className='userreviews' style={{margin: "5% auto",padding:'20px',border:'2px solid black',backgroundColor:'cadetblue'}}>
+                        <h3 style={{fontWeight: "700",textAlign: "center",marginBottom: "4%"}}> Add reviews </h3>
+                        <div className='reviewForm' style={{backgroundColor:'cadetblue'}}>
                             {
                                 this.state.hasError && 
                                     <Alert color="danger">
@@ -98,16 +98,16 @@ class Review extends React.Component {
                                     </Alert>
                             }
                             <FormGroup row>
-                                <Label for="userName" sm={2}>Username:</Label>
+                                <Label for="userName" sm={2} style={{fontWeight:'500'}}>Username:</Label>
                                 <Col sm={10}><Input onChange={(text) => {this.handleChange(text, "userName")}} value={this.state.userName}  id="userName" name="userName" placeholder="Enter your user name" type="text"/></Col>
                             </FormGroup>
 
                             <FormGroup row>
-                                <Label for="addReview" sm={2}>Add Review:</Label>
+                                <Label for="addReview" sm={2} style={{fontWeight:'500'}}>Add Review:</Label>
                                 <Col sm={10}><Input onChange={(text) => {this.handleChange(text, "addReview")}} value={this.state.addReview}  id="addReview" name="addReview" placeholder="Enter review" type="textarea"/></Col>
                             </FormGroup>
-                            <Button style={{marginRight: "2%"}} type='submit' onClick={this.submitBtnClicked}>Submit</Button>
-                            <Button type='cancel'>Cancel</Button>
+                            <Button style={{marginRight: "2%",backgroundColor:'black',color:'whitesmoke'}} type='submit' onClick={this.submitBtnClicked}>Submit</Button>
+                            <Button type='cancel' style={{backgroundColor:'black',color:'whitesmoke'}}>Cancel</Button>
                         </div>
                     </div>
 
