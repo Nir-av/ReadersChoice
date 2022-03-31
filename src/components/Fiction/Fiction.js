@@ -43,8 +43,9 @@ class Fiction extends Component
                                     src={book.imageURL}
                                     top
                                     width="100%"
+                                    
                                     />
-                                    <CardBody style={{backgroundColor:"#FDF6F0"}}>
+                                    <CardBody style={{backgroundColor:"#FDF6F0",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
                                         <CardTitle tag="h3">
                                             {book.title}
                                         </CardTitle>

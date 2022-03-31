@@ -43,8 +43,9 @@ class Children extends Component
                                     src={book.imageURL}
                                     top
                                     width="100%"
+                                    style={{maxWidth:"500px",maxHeight:"550px"}}
                                     />
-                                    <CardBody style={{backgroundColor:"#FDF6F0"}}>
+                                    <CardBody style={{backgroundColor:"#FDF6F0",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
                                         <CardTitle tag="h3">
                                             {book.title}
                                         </CardTitle>
