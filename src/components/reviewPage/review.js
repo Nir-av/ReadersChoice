@@ -136,9 +136,9 @@ class Review extends React.Component {
                         {
                             this.state.booksData.slice(3,6).map(books => (
                                 <CardGroup key={books._id}>
-                                    <Card>
-                                        <CardImg alt="Card image cap" src={books.imageURL} top width="100%"/>
-                                        <CardBody>
+                                    <Card style={{display:"flex",flexDirection:"row",marginBottom:"20px" ,border:"5px solid black",boxShadow:"5px 10px"}}>
+                                        <CardImg alt="Card image cap" src={books.imageURL} top width="100%" style={{maxWidth:"250px",maxHeight:"350px" }}/>
+                                        <CardBody style={{display:"flex",flexDirection:"column",justifyContent:"space-between" }}>
                                             <CardTitle tag="h3">
                                                 {books.title}
                                             </CardTitle>
@@ -154,7 +154,7 @@ class Review extends React.Component {
                                             <CardText>
                                                 {books.synopsis}
                                             </CardText>
-                                            <Button>
+                                            <Button style={{width:"30%"}}>
                                                 Review
                                             </Button>
                                         </CardBody>
