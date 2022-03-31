@@ -1,0 +1,19 @@
+.wrapper
+{
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.BookForm
+{
+    display: block;
+    justify-content: center;
+    padding: 2%;
+    border: 2px solid;
+    width: 100%;
+    background-color: #FDF6F0;
+}
+h1{
+    text-align: left;
+    padding: 1%;
+}
