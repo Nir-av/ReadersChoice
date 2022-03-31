@@ -14,7 +14,7 @@ import {CardGroup,Card,CardImg,CardBody,CardTitle,CardText,Button,Collapse,
     } from 'reactstrap'
 import RcLogo from '../../Images/rcLogo.png';
 import axios from 'axios';
-
+import Footer from '../Footer/Footer'
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -135,6 +135,7 @@ class Homepage extends React.Component {
                 </div>
             </div>
         </div>
+        <Footer/>
       </React.Fragment>
     );
   }

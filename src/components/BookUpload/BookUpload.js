@@ -3,6 +3,8 @@ import {Col, Card, CardBody, Button, Form, FormGroup, Label, Input, Alert } from
 import {withRouter } from "react-router-dom";
 import './style.css';
 import axios from "axios";
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 class BookUpload extends Component 
 {
@@ -104,53 +106,55 @@ class BookUpload extends Component
     render() {
         return (
            <React.Fragment>
-           <Card>
-               <CardBody>
-               <div className="wrapper">
-                <div className="BookForm">
-                        <Form style={{paddingLeft:"15%"}}>
-                            <h2 className="text-left">Book Upload for review Form:</h2>
-                            {
-                                this.state.hasError && 
-                                    <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Alert color="danger">
-                                        {this.state.errorMsg}
-                                    </Alert></Col>
-                            }
-                            <FormGroup style={{backgroundColor: "#FDF6F0"}}>
-                                <Label for="bookTitle" >Book Title:</Label>
-                                <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "bookTitle")}} value={this.state.bookTitle} id="bookTitle" name="bookTitle" placeholder="Enter Book Title" type="text"/></Col>
-                            </FormGroup>
-                            <FormGroup style={{backgroundColor: "#FDF6F0"}}>
-                                <Label for="authorName">Author Name:</Label>
-                                <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "authorName")}} value={this.state.authorName} id="authorName" name="authorName" placeholder="Enter Author Name" type="text"/></Col>
-                            </FormGroup>
-                            <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
-                                <Label for="publisher">Publisher:</Label>
-                                <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "publisher")}} value={this.state.publisher} id="publisher" name="publisher" placeholder="Enter Publisher Name" type="text"/></Col>
-                            </FormGroup>
-                            <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
-                                <Label for="synopsis">Synopsis:</Label>
-                                <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "synopsis")}} value={this.state.synopsis} id="synopsis" name="synopsis" placeholder="Enter Synopsis" type="text"/></Col>
-                            </FormGroup>
-                            <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
-                                <Label for="imageURL">Book Poster Url:</Label>
-                                <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "imageURL")}} value={this.state.imageURL} id="imageURL" name="imageURL" placeholder="Enter ImageURL" type="url"/></Col>
-                            </FormGroup>
-                            <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
-                                <Label for="bookCategory">Book Category:</Label>
-                                <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "bookCategory")}} value={this.state.bookCategory} id="bookCategory" name="bookCategory" placeholder="Enter Book's Category" type="url"/></Col>
-                            </FormGroup>
-                            <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
-                                <Label for="releaseDate">Date:</Label>
-                                <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "releaseDate")}} value={this.state.releaseDate} id="releaseDate" name="releaseDate" placeholder="Release Date" type="date"/></Col>
-                                
-                            </FormGroup>
-                            <Button style={{marginRight:"2%"}} onClick={this.submitBtnClick} type="submit">Submit</Button><Button type="reset">Cancel</Button>
-                        </Form>
-                    </div>
-                </div>    
-               </CardBody>
-           </Card>
+            <Header/>
+                <Card>
+                    <CardBody>
+                    <div className="wrapper">
+                        <div className="BookForm">
+                                <Form style={{paddingLeft:"15%"}}>
+                                    <h2 className="text-left">Book Upload for review Form:</h2>
+                                    {
+                                        this.state.hasError && 
+                                            <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Alert color="danger">
+                                                {this.state.errorMsg}
+                                            </Alert></Col>
+                                    }
+                                    <FormGroup style={{backgroundColor: "#FDF6F0"}}>
+                                        <Label for="bookTitle" >Book Title:</Label>
+                                        <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "bookTitle")}} value={this.state.bookTitle} id="bookTitle" name="bookTitle" placeholder="Enter Book Title" type="text"/></Col>
+                                    </FormGroup>
+                                    <FormGroup style={{backgroundColor: "#FDF6F0"}}>
+                                        <Label for="authorName">Author Name:</Label>
+                                        <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "authorName")}} value={this.state.authorName} id="authorName" name="authorName" placeholder="Enter Author Name" type="text"/></Col>
+                                    </FormGroup>
+                                    <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
+                                        <Label for="publisher">Publisher:</Label>
+                                        <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "publisher")}} value={this.state.publisher} id="publisher" name="publisher" placeholder="Enter Publisher Name" type="text"/></Col>
+                                    </FormGroup>
+                                    <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
+                                        <Label for="synopsis">Synopsis:</Label>
+                                        <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "synopsis")}} value={this.state.synopsis} id="synopsis" name="synopsis" placeholder="Enter Synopsis" type="text"/></Col>
+                                    </FormGroup>
+                                    <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
+                                        <Label for="imageURL">Book Poster Url:</Label>
+                                        <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "imageURL")}} value={this.state.imageURL} id="imageURL" name="imageURL" placeholder="Enter ImageURL" type="url"/></Col>
+                                    </FormGroup>
+                                    <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
+                                        <Label for="bookCategory">Book Category:</Label>
+                                        <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "bookCategory")}} value={this.state.bookCategory} id="bookCategory" name="bookCategory" placeholder="Enter Book's Category" type="url"/></Col>
+                                    </FormGroup>
+                                    <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
+                                        <Label for="releaseDate">Date:</Label>
+                                        <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "releaseDate")}} value={this.state.releaseDate} id="releaseDate" name="releaseDate" placeholder="Release Date" type="date"/></Col>
+                                        
+                                    </FormGroup>
+                                    <Button style={{marginRight:"2%"}} onClick={this.submitBtnClick} type="submit">Submit</Button><Button type="reset">Cancel</Button>
+                                </Form>
+                            </div>
+                        </div>    
+                    </CardBody>
+                </Card>
+            <Footer/>
             </React.Fragment>
         );
     }
