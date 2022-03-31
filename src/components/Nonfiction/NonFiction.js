@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import {CardBody,CardGroup,CardTitle,CardImg,CardText,Button,Card} from "reactstrap";
-import './style.css'
+import Header from '../Header/header';
+import Footer from '../Footer/Footer';
+
 class NonFiction extends Component 
 {
     constructor(props){
@@ -31,14 +33,15 @@ class NonFiction extends Component
     render() {
         return (
            <React.Fragment>
+            <Header/>
                 <div className="list">
                     <h1>Non-Fiction Books</h1>
                     {
                         this.state.nonFictionData.map(book => (
-                            <CardGroup style={{marginBottom: "5%",borderRadius:"50px"}} key={book._id}>
-                                <Card style={{display:"flex",flexDirection:"row",backgroundColor:"#FDF6F0",boxShadow:"5px 10px #888888"}}>
+                            <CardGroup style={{margin: "5%",borderRadius:"50px"}} key={book._id}>
+                                <Card style={{display:"flex",flexDirection:"row",backgroundColor:"#BED7D1",boxShadow:"5px 10px #888888"}}>
                                     <CardImg alt="Card image cap" src={book.imageURL} style={{maxWidth:"500px",maxHeight:"550px"}}/>
-                                    <CardBody style={{backgroundColor:"#FDF6F0",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+                                    <CardBody style={{backgroundColor:"#BED7D1",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
                                         <CardTitle tag="h3">
                                             {book.title}
                                         </CardTitle>
@@ -63,6 +66,7 @@ class NonFiction extends Component
                         ))
                     }
                 </div>
+            <Footer/>
             </React.Fragment>
         );
     }

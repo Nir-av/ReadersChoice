@@ -14,7 +14,8 @@ import {CardGroup,Card,CardImg,CardBody,CardTitle,CardText,Button,Collapse,
     } from 'reactstrap'
 import RcLogo from '../../Images/rcLogo.png';
 import axios from 'axios';
-import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer';
+
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -50,10 +51,10 @@ class Homepage extends React.Component {
             <Collapse className="justify-content-end"style={{backgroundColor:'#F5C6AA'}}  isOpen={this.state.isOpen} navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink href="/components/">Home</NavLink>
+                  <NavLink href="/home">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">Upload</NavLink>
+                  <NavLink href="/book_upload">Upload</NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
@@ -61,22 +62,19 @@ class Homepage extends React.Component {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      Non-Fiction
+                    <NavLink href="/children">Childrern</NavLink>
                     </DropdownItem>
                     <DropdownItem>
-                      Fiction
+                    <NavLink href="/fiction">Fiction</NavLink>
                     </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem>
-                      Children
+                    <NavLink href="/non_fiction">Non-Fiction</NavLink>
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">About Us</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">Login | Signup</NavLink>
+                  <NavLink href="/signin">Login | Signup</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

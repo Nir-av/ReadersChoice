@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import {CardBody,CardGroup,CardTitle,CardImg,CardSubtitle,CardText,Button,Card} from "reactstrap";
-import './style.css';
 import axios from "axios";
+import Footer from "../Footer/Footer";
+import Header from '../Header/header';
 
 class Fiction extends Component 
 {
@@ -32,20 +33,21 @@ class Fiction extends Component
     render() {
         return (
            <React.Fragment>
+               <Header/>
                 <div className="list">
                     <h1>Fiction Books</h1>
                     {
                         this.state.fictionData.map(book => (
-                            <CardGroup style={{marginBottom: "5%",borderRadius:"50px"}} key={book._id}>
-                                <Card style={{display:"flex",flexDirection:"row",backgroundColor:"#FDF6F0",boxShadow:"5px 10px #888888"}}>
+                            <CardGroup style={{borderRadius:"50px",margin:"5%"}} key={book._id}>
+                                <Card style={{display:"flex",flexDirection:"row",backgroundColor:"#BED7D1",boxShadow:"5px 10px #888888"}}>
                                     <CardImg
                                     alt="Card image cap"
                                     src={book.imageURL}
                                     top
                                     width="100%"
-                                    
+                                    style={{maxWidth:"500px",maxHeight:"550px"}}
                                     />
-                                    <CardBody style={{backgroundColor:"#FDF6F0",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+                                    <CardBody style={{backgroundColor:"#BED7D1",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
                                         <CardTitle tag="h3">
                                             {book.title}
                                         </CardTitle>
@@ -70,6 +72,7 @@ class Fiction extends Component
                         ))
                     }
                 </div>
+            <Footer/>
             </React.Fragment>
         );
     }

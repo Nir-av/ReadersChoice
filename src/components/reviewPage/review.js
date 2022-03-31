@@ -4,6 +4,8 @@ import {CardGroup, Alert, CardBody, CardTitle, Card, CardImg, CardText, Button, 
 import './review.css';
 import bookImg from '../../Images/book.png';
 import axios from 'axios'; 
+import Header from '../Header/header';
+import Footer from '../Footer/Footer';
 
 class Review extends React.Component {
     
@@ -68,6 +70,7 @@ class Review extends React.Component {
     render() {
         return (  
         <React.Fragment>
+        <Header/>
             <div className='container'>
                 <div className ='part1'>
                     <div className='bookimage'>
@@ -165,6 +168,7 @@ class Review extends React.Component {
                     </div>
                 </div>
             </div>
+        <Footer/>
         </React.Fragment>
         );
     }

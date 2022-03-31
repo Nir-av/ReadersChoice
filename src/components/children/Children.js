@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import {CardBody,CardGroup,CardTitle,CardImg,CardSubtitle,CardText,Button,Card} from "reactstrap";
-import './style.css';
 import axios from "axios";
-
+import Header from '../Header/header';
+import Footer from '../Footer/Footer';
 class Children extends Component 
 {
     constructor(props){
@@ -32,12 +32,13 @@ class Children extends Component
     render() {
         return (
            <React.Fragment>
+            <Header/>
                 <div className="list">
                     <h1>Children Books</h1>
                     {
                         this.state.childrenData.map(book => (
-                            <CardGroup style={{marginBottom: "5%",borderRadius:"50px"}} key={book._id}>
-                                <Card style={{display:"flex",flexDirection:"row",backgroundColor:"#FDF6F0",boxShadow:"5px 10px #888888"}}>
+                            <CardGroup style={{margin: "5%",borderRadius:"50px"}} key={book._id}>
+                                <Card style={{display:"flex",flexDirection:"row",backgroundColor:"#BED7D1",boxShadow:"5px 10px #888888"}}>
                                     <CardImg
                                     alt="Card image cap"
                                     src={book.imageURL}
@@ -45,7 +46,7 @@ class Children extends Component
                                     width="100%"
                                     style={{maxWidth:"500px",maxHeight:"550px"}}
                                     />
-                                    <CardBody style={{backgroundColor:"#FDF6F0",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+                                    <CardBody style={{backgroundColor:"#BED7D1",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
                                         <CardTitle tag="h3">
                                             {book.title}
                                         </CardTitle>
@@ -70,6 +71,7 @@ class Children extends Component
                         ))
                     }
                 </div>
+            <Footer/>
             </React.Fragment>
         );
     }

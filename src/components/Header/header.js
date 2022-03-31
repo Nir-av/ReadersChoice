@@ -32,16 +32,16 @@ class Header extends React.Component {
 
   render() {
     return (
-        <Navbar light expand="md" >
+        <Navbar light expand="md" style={{backgroundColor:'#F5C6AA'}}>
           <Link to="/" className="logo"><img className="logo" src={RcLogo} height="80" alt="rcLogo" /></Link>
           <NavbarToggler onClick={this.toggle} />
-            <Collapse className="justify-content-end"  isOpen={this.state.isOpen} navbar>
+            <Collapse className="justify-content-end" style={{backgroundColor:'#F5C6AA'}}  isOpen={this.state.isOpen} navbar>
               <Nav navbar style={{display: "block ruby"}}>
-                <NavItem>
-                  <NavLink href="/components/">Home</NavLink>
+              <NavItem>
+                  <NavLink href="/home">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">Upload</NavLink>
+                  <NavLink href="/book_upload">Upload</NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
@@ -49,22 +49,19 @@ class Header extends React.Component {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      Non-Fiction
+                    <NavLink href="/children">Childrern</NavLink>
                     </DropdownItem>
                     <DropdownItem>
-                      Fiction
+                    <NavLink href="/fiction">Fiction</NavLink>
                     </DropdownItem>
-                    <DropdownItem divider />
+                    <DropdownItem/>
                     <DropdownItem>
-                      Children
+                    <NavLink href="/non_fiction">Non-Fiction</NavLink>
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">About Us</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">Login | Signup</NavLink>
+                  <NavLink href="/signin">Login | Signup</NavLink>
                 </NavItem>
                   <Input className="mr-sm-2" style={{width: "30%"}} type="search" placeholder="Search" aria-label="Search"/>&nbsp;&nbsp;
                   <Button className="btn my-2 my-sm-0"   type="submit">Search</Button>

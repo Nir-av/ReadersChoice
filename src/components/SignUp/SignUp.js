@@ -4,6 +4,8 @@ import { Link, withRouter } from "react-router-dom";
 import RcLogo from '../../Images/rcLogo.png';
 import axios from "axios";
 import './SignUp.css';
+import Header from '../Header/header';
+import Footer from '../Footer/Footer';
 
 class SignUp extends Component 
 {
@@ -105,6 +107,7 @@ class SignUp extends Component
     
         return (
            <React.Fragment>
+               <Header/>
                     <div className="container my-5">
                         <Row className="justify-content-center">
                             <Col md="8" lg="6" xl="5">
@@ -149,7 +152,7 @@ class SignUp extends Component
                                                     <Button outline color="success" type="submit" onClick={this.submitBtnClicked}>Submit</Button>&nbsp;&nbsp;&nbsp;
                                                     <Button outline color="danger" type="cancel" onClick={this.canelBtnClicked}>Cancel</Button>
                                                 </div>
-                                                <Link to="/signin">Are you an existing user?</Link>
+                                                Are you an existing user? <Link to="/signin">Click Here!</Link>
                                             </Form>
                                         </div>
                                     </CardBody>
@@ -157,6 +160,7 @@ class SignUp extends Component
                             </Col>
                         </Row>
                     </div>
+                <Footer/>
             </React.Fragment>
         );
     }
