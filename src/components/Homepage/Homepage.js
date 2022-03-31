@@ -48,7 +48,7 @@ class Homepage extends React.Component {
           <Link to="/" className="logo"><img className="logo" src={RcLogo} height="80" style={{borderRadius:'1em'}} alt="rcLogo" /></Link>
           <NavbarToggler onClick={this.toggle}  />
             <Collapse className="justify-content-end"style={{backgroundColor:'#F5C6AA'}}  isOpen={this.state.isOpen} navbar>
-              <Nav navbar style={{display: "block ruby"}}>
+              <Nav navbar>
                 <NavItem>
                   <NavLink href="/components/">Home</NavLink>
                 </NavItem>
@@ -97,36 +97,40 @@ class Homepage extends React.Component {
                 <div className='featured'>
                     <h1>Our featured Books</h1>
                     <CardGroup>
-                    {
-                      this.state.bookdata.slice(0,3).map(books => (
-                        <Card key={books._id}>
-                            <CardImg
-                            alt="Card image cap"
-                            src={books.imageURL}
-                            top
-                            width="100%"
-                            />
-                            <CardBody>
-                            <CardTitle  tag="h3">
-                              {books.title}
-                            </CardTitle>
-                            <CardTitle tag="h4">
-                              Author: {books.authorName}
-                            </CardTitle>
-                            <CardTitle tag="h5">
-                              Publisher: {books.publisher}
-                            </CardTitle>
-                            <CardText>
-                                {books.synopsis}
-                            </CardText>
-                            <Button>
-                                Button
-                            </Button>
-                            </CardBody>
-                        </Card>
-                        ))
-                    }
-                    </CardGroup>
+                    {/* <div id="list"> */}
+                      {
+                        this.state.bookdata.slice(0,3).map(books => (
+                            
+                              <Card style={{display:"flex",flexDirection:"column"}} key={books._id}>
+                                  <CardImg
+                                  alt="Card image cap"
+                                  src={books.imageURL}
+                                  top
+                                  width="1%"
+                                  />
+                                  <CardBody>
+                                  <CardTitle  tag="h3">
+                                    {books.title}
+                                  </CardTitle>
+                                  <CardTitle tag="h4">
+                                    Author: {books.authorName}
+                                  </CardTitle>
+                                  <CardTitle tag="h5">
+                                    Publisher: {books.publisher}
+                                  </CardTitle>
+                                  <CardText>
+                                      {books.synopsis}
+                                  </CardText>
+                                  <Button>
+                                      Button
+                                  </Button>
+                              </CardBody>
+                            </Card>
+                          
+                          ))
+                      }
+                      </CardGroup>
+                    {/* </div> */}
                 </div>
             </div>
         </div>
