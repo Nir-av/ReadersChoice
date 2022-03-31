@@ -106,9 +106,10 @@ class Homepage extends React.Component {
                                   alt="Card image cap"
                                   src={books.imageURL}
                                   top
-                                  width="1%"
+                                  width="100%"
+                                  style={{maxWidth:"500px",maxHeight:"550px"}}
                                   />
-                                  <CardBody>
+                                  <CardBody style={{display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
                                   <CardTitle  tag="h3">
                                     {books.title}
                                   </CardTitle>
