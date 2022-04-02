@@ -110,7 +110,7 @@ class SignIn extends Component
                                                     <Input onChange={(text) => {this.handleChange(text, "userPassword")}} value={this.state.userPassword} type="password" name="userPassword" id="userPassword" placeholder="Enter password" />
                                                 </FormGroup>
                                                 <div className="background col-md-12 text-center">
-                                                    <Button outline color="success" type="submit" onClick={this.loginBtnClicked}>Login</Button>&nbsp;&nbsp;&nbsp;
+                                                    <Button outline color="success"  type="submit" onClick={this.loginBtnClicked}>Login</Button>&nbsp;&nbsp;&nbsp;
                                                     <Button outline color="danger" type="cancel" onClick={this.cancelBtnClicked}>Cancel</Button>
                                                 </div>
                                                 <Link to="/signup">Click Here!</Link> To Sign Up.
