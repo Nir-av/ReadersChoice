@@ -58,12 +58,15 @@ class BookUpload extends Component
         releaseDate: "",
         synopsis: "",
         imageURL: "",
-        bookCategory: ""
+        bookCategory: "",
+        cardElement:""
         });
     }
 
-    submitBtnClick = (e) => {
+    submitBtnClick = async (e) => {
+
         e.preventDefault();
+
         if(!this.state.bookTitle){
             this.setState({hasError: true, errorMsg: "Book Title field should not be empty!"});
         }
@@ -86,6 +89,7 @@ class BookUpload extends Component
             this.setState({hasError: true, errorMsg: "Release date field should not be empty!"});
         }
         else {
+            
            var data = {
                 bookTitle: this.state.bookTitle,
                 authorName: this.state.authorName,
@@ -97,7 +101,7 @@ class BookUpload extends Component
            }
            axios.post('http://localhost:8000/books', data)
             .then(response => {
-                console.log(response);
+                this.props.history.push('/');
                 this.clearField();
             })
         }
@@ -146,7 +150,6 @@ class BookUpload extends Component
                                     <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
                                         <Label for="releaseDate">Date:</Label>
                                         <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "releaseDate")}} value={this.state.releaseDate} id="releaseDate" name="releaseDate" placeholder="Release Date" type="date"/></Col>
-                                        
                                     </FormGroup>
                                     <Button style={{marginRight:"2%"}} onClick={this.submitBtnClick} type="submit">Submit</Button><Button type="reset">Cancel</Button>
                                 </Form>

@@ -37,9 +37,8 @@ class Review extends React.Component {
                 let Reviews = response.data.reviews;
                 this.setState({bookReviews: Reviews});
                 this.state.bookReviews.map(review => {
-                    if (review.bookId === book_id) {
+                    if (review.bookId == book_id) {
                         this.setState({filteredReview: this.state.filteredReview.concat(review)});
-                        console.log(this.state.filteredReview);
                     }
                 })  
         });
@@ -81,6 +80,13 @@ class Review extends React.Component {
             axios.post('http://localhost:8000/booksReview', data)
                 .then(response => window.location.reload(true))
         }
+    }
+
+    reviewBtnClicked = (book_id, e) => {
+        e.preventDefault();
+        console.log("Clicked!", book_id)
+        this.props.history.push('/review/' + book_id);
+        window.location.reload(true);
     }
 
     render() {
@@ -172,7 +178,7 @@ class Review extends React.Component {
                                             <CardText>
                                                 {books.synopsis}
                                             </CardText>
-                                            <Button>
+                                            <Button type="submit" onClick={(e) => this.reviewBtnClicked(books._id, e)}>
                                                 Review
                                             </Button>
                                         </CardBody>

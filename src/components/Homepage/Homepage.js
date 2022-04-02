@@ -41,6 +41,11 @@ class Homepage extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
+  reviewBtnClicked = (book_id, e) => {
+        e.preventDefault();
+        this.props.history.push('/review/' + book_id);
+    }
   
   render() {
     return (
@@ -60,7 +65,7 @@ class Homepage extends React.Component {
                   <DropdownToggle nav caret>
                     Category
                   </DropdownToggle>
-                  <DropdownMenu right>
+                  <DropdownMenu end>
                     <DropdownItem>
                     <NavLink href="/children">Childrern</NavLink>
                     </DropdownItem>
@@ -99,12 +104,13 @@ class Homepage extends React.Component {
                       {
                         this.state.bookdata.slice(0,3).map(books => (
                             
-                              <Card style={{display:"flex",flexDirection:"column"}} key={books._id}>
+                              <Card style={{display:"flex",flexDirection:"column", margin: "1%"}} key={books._id}>
                                   <CardImg
                                   alt="Card image cap"
                                   src={books.imageURL}
                                   top
                                   width="100%"
+                                  height="50%"
                                   style={{maxWidth:"500px",maxHeight:"550px"}}
                                   />
                                   <CardBody style={{display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
@@ -117,11 +123,14 @@ class Homepage extends React.Component {
                                   <CardTitle tag="h5">
                                     Publisher: {books.publisher}
                                   </CardTitle>
+                                  <CardTitle tag="h5">
+                                    Releade Date: {books.release_date}
+                                  </CardTitle>
                                   <CardText>
                                       {books.synopsis}
                                   </CardText>
-                                  <Button>
-                                      Button
+                                  <Button type="submit" onClick={(e) => this.reviewBtnClicked(books._id, e)}>
+                                      Review
                                   </Button>
                               </CardBody>
                             </Card>

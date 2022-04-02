@@ -47,7 +47,7 @@ class Header extends React.Component {
                   <DropdownToggle nav caret>
                     Category
                   </DropdownToggle>
-                  <DropdownMenu right>
+                  <DropdownMenu end>
                     <DropdownItem>
                     <NavLink href="/children">Childrern</NavLink>
                     </DropdownItem>
