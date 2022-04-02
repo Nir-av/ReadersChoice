@@ -106,10 +106,9 @@ class Review extends React.Component {
 
                 <div className='part-2'>
                     <div className='info'>
-                        <h2>Author Name: {this.state.book.authorName}</h2>
-                        <h2>Publisher: {this.state.book.publisher}</h2>
-                        <h2>Date of release: {this.state.book.release_date}</h2>
-
+                        <h4>Author Name: {this.state.book.authorName}</h4>
+                        <h4>Publisher: {this.state.book.publisher}</h4>
+                        <h4>Date of release: {this.state.book.release_date}</h4>
                     </div>
 
                     <div className='userreviews' style={{marginTop: "10%"}}>
@@ -137,10 +136,10 @@ class Review extends React.Component {
 
                     <div className='reviews' style={{marginTop: "10%"}}>
                         <h3>User Reviews</h3>
-                        <ListGroup>
+                        <ListGroup style={{borderRadius:"15px"}}>
                             {
                                 this.state.filteredReview.map(reviews => (
-                                <ListGroupItem key={reviews._id}>
+                                <ListGroupItem style={{marginBottom:"1%",borderRadius:"15px"}} key={reviews._id}>
                                     <ListGroupItemHeading>
                                         {reviews.userName}
                                     </ListGroupItemHeading>
@@ -157,12 +156,12 @@ class Review extends React.Component {
                 <div className='part-3' style={{marginTop: "10%"}}>
                 <h2>Suggestedbooks</h2>
                     <div className ='suggestedbooks'>
+                    <CardGroup>
                         {
                             this.state.booksData.slice(3,6).map(books => (
-                                <CardGroup key={books._id}>
-                                    <Card>
-                                        <CardImg alt="Card image cap" src={books.imageURL} top width="100%"/>
-                                        <CardBody>
+                                    <Card style={{display:"flex",flexDirection:"column",margin:"1%"}} key={books._id}>
+                                        <CardImg alt="Card image cap" src={books.imageURL} top width="100%" height="50%" style={{maxWidth:"500px",maxHeight:"550px"}}/>
+                                        <CardBody style={{display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
                                             <CardTitle tag="h3">
                                                 {books.title}
                                             </CardTitle>
@@ -183,9 +182,10 @@ class Review extends React.Component {
                                             </Button>
                                         </CardBody>
                                     </Card>
-                                </CardGroup>
+                                
                             ))
                         }
+                    </CardGroup>
                     </div>
                 </div>
             </div>
