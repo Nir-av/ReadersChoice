@@ -86,7 +86,7 @@ class SignUp extends Component
                 email: this.state.userEmail,
                 password: this.state.userPassword
             }
-            axios.post('http://localhost:8000/users/signup', data)
+            axios.post('https://readerschoice-api.herokuapp.com/users/signup', data)
             .then(response => {
                 this.setState({noError: true});
                 this.props.history.push('/signin');

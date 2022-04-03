@@ -56,7 +56,7 @@ class SignIn extends Component
                 password: this.state.userPassword
             }
             console.log(data);
-            axios.post('http://localhost:8000/users/login', data)
+            axios.post('https://readerschoice-api.herokuapp.com/users/login', data)
             .then(response => {
                 this.setState({noError: true});
                 this.props.history.push('/');

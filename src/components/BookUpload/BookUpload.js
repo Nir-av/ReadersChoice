@@ -70,7 +70,7 @@ class BookUpload extends Component
             amount: 10
         }
 
-        axios.post("http://localhost:8000/payment", details)
+        axios.post("https://readerschoice-api.herokuapp.com/payment", details)
             .then(response => {
                 const {status} = response
                 if(status === 200){
@@ -106,7 +106,7 @@ class BookUpload extends Component
                                 category: this.state.bookCategory,
                                 release_date: this.state.releaseDate
                         }
-                        axios.post('http://localhost:8000/books', data)
+                        axios.post('https://readerschoice-api.herokuapp.com/books', data)
                             .then(response => {
                                 this.props.history.push('/');
                                 this.clearField();

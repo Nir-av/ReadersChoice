@@ -26,13 +26,13 @@ class Review extends React.Component {
 
         let book_id = this.props.match.params.book_id;
 
-        axios.get('http://localhost:8000/books')
+        axios.get('https://readerschoice-api.herokuapp.com/books')
             .then(response => {
                 let Response = response.data.books;
                 this.setState({booksData: Response});
         });
         
-        axios.get('http://localhost:8000/booksReview')
+        axios.get('https://readerschoice-api.herokuapp.com/booksReview')
             .then(response => {
                 let Reviews = response.data.reviews;
                 this.setState({bookReviews: Reviews});
@@ -43,7 +43,7 @@ class Review extends React.Component {
                 })  
         });
         
-        axios.get('http://localhost:8000/books/' + book_id)
+        axios.get('https://readerschoice-api.herokuapp.com/books/' + book_id)
             .then(response => {
                 let Response = response.data.book;
                 this.setState({book: Response});

@@ -16,7 +16,7 @@ class NonFiction extends Component
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8000/books')
+        axios.get('https://readerschoice-api.herokuapp.com/books')
             .then(response => {
                 let nFiction = "Non-Fiction";
                 let Response = response.data.books;
