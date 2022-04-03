@@ -2,7 +2,7 @@ import SignUp from "./components/SignUp/SignUp";
 import SignIn from "./components/SignIn/SignIn";
 import HomePage from "./components/Homepage/Homepage";
 import BookUpload from "./components/BookUpload/BookUpload";
-import Children from "./components/Children/Children";
+import Children from "./components/children/Children";
 import Fiction from "./components/Fiction/Fiction";
 import NonFiction from "./components/NonFiction/NonFiction";
 import ReviewPage from "./components/ReviewPage/review";
