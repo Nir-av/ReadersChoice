@@ -42,3 +42,15 @@
 {
     background-color: #F5C6AA;
 }
+@media only screen and (min-width: 600px) {
+    .search
+    {
+        padding-left: 40%;
+    }
+}
+@media only screen and (min-width: 500px) {
+    .search
+    {
+        padding-left: 30%;
+    }
+}
