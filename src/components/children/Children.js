@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import {CardBody,CardGroup,CardTitle,CardImg,CardSubtitle,CardText,Button,Card} from "reactstrap";
+import {CardBody,CardGroup,CardTitle,CardImg,CardText,Button,Card} from "reactstrap";
 import axios from "axios";
 import Header from '../Header/header';
 import Footer from '../Footer/Footer';
