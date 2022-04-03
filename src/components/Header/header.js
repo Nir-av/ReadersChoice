@@ -33,7 +33,7 @@ class Header extends React.Component {
   render() {
     return (
         <Navbar light expand="md" style={{backgroundColor:'#F5C6AA'}}>
-          <Link to="/" className="logo"><img className="logo" src={RcLogo} height="80" alt="rcLogo" /></Link>
+          <Link to="/" className="logo"><img className="logo" src={RcLogo} height="80" style={{borderRadius:'1em'}} alt="rcLogo" /></Link>
           <NavbarToggler onClick={this.toggle} />
             <Collapse className="justify-content-end" style={{backgroundColor:'#F5C6AA'}}  isOpen={this.state.isOpen} navbar>
               <Nav navbar style={{display: "block ruby"}}>
@@ -54,7 +54,6 @@ class Header extends React.Component {
                     <DropdownItem>
                     <NavLink href="/fiction">Fiction</NavLink>
                     </DropdownItem>
-                    <DropdownItem/>
                     <DropdownItem>
                     <NavLink href="/non_fiction">Non-Fiction</NavLink>
                     </DropdownItem>

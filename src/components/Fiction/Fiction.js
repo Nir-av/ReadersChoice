@@ -22,7 +22,7 @@ class Fiction extends Component
                 let Response = response.data.books;
                 this.setState({booksData: Response});
                 this.state.booksData.map(books => {
-                   if(books.category == Fiction){
+                   if(books.category === Fiction){
                         let FData = books;
                         this.setState({fictionData: this.state.fictionData.concat(FData)});
                    }

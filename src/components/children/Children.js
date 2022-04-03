@@ -21,7 +21,7 @@ class Children extends Component
                 let Response = response.data.books;
                 this.setState({booksData: Response});
                 this.state.booksData.map(books => {
-                   if(books.category == children){
+                   if(books.category === children){
                         let childrenD = books;
                         this.setState({childrenData: this.state.childrenData.concat(childrenD)});
                    }

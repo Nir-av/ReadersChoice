@@ -72,7 +72,6 @@ class Homepage extends React.Component {
                     <DropdownItem>
                     <NavLink href="/fiction">Fiction</NavLink>
                     </DropdownItem>
-                    <DropdownItem divider />
                     <DropdownItem>
                     <NavLink href="/non_fiction">Non-Fiction</NavLink>
                     </DropdownItem>

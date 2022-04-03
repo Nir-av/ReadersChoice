@@ -22,7 +22,7 @@ class NonFiction extends Component
                 let Response = response.data.books;
                 this.setState({booksData: Response});
                 this.state.booksData.map(books => {
-                   if(books.category == nFiction){
+                   if(books.category === nFiction){
                         let nFData = books;
                         this.setState({nonFictionData: this.state.nonFictionData.concat(nFData)});
                    }
