@@ -8,7 +8,6 @@ import NonFiction from "./components/NonFiction/NonFiction";
 import ReviewPage from "./components/ReviewPage/review";
 
 const routes = [
-    
     {path: '/signup', component: SignUp},
     {path: '/signin', component: SignIn},
     {path: '/home', component: HomePage},

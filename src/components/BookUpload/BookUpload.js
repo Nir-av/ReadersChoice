@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Col, Card, CardBody, Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 import {withRouter } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
 import './style.css';
 import axios from "axios";
 import Footer from '../Footer/Footer';
@@ -63,54 +64,73 @@ class BookUpload extends Component
         });
     }
 
-    submitBtnClick = async (e) => {
+    handleToken = (token) => {
+        var details = {
+            token,
+            amount: 10
+        }
 
-        e.preventDefault();
-
-        if(!this.state.bookTitle){
-            this.setState({hasError: true, errorMsg: "Book Title field should not be empty!"});
-        }
-        else if(!this.state.authorName){
-            this.setState({hasError: true, errorMsg: "Author name field should not be empty!"});
-        }
-        else if(!this.state.publisher){
-            this.setState({hasError: true, errorMsg: "Publisher name field should not be empty!"});
-        }
-        else if(!this.state.synopsis){
-            this.setState({hasError: true, errorMsg: "Synopsis field should not be empty!"});
-        }
-        else if(!this.state.imageURL){
-            this.setState({hasError: true, errorMsg: "Image URL field should not be empty!"});
-        }
-        else if(!this.state.bookCategory){
-            this.setState({hasError: true, errorMsg: "Book category field should not be empty!"});
-        }
-        else if(!this.state.releaseDate){
-            this.setState({hasError: true, errorMsg: "Release date field should not be empty!"});
-        }
-        else {
-            
-           var data = {
-                bookTitle: this.state.bookTitle,
-                authorName: this.state.authorName,
-                publisher: this.state.publisher,
-                synopsis: this.state.synopsis,
-                imageURL: this.state.imageURL,
-                bookCategory: this.state.bookCategory,
-                releaseDate: this.state.releaseDate
-           }
-           axios.post('http://localhost:8000/books', data)
+        axios.post("http://localhost:8000/payment", details)
             .then(response => {
-                this.props.history.push('/');
-                this.clearField();
-            })
-        }
+                const {status} = response
+                if(status === 200){
+                    console.log(status);
+                    if(!this.state.bookTitle){
+                        this.setState({hasError: true, errorMsg: "Book Title field should not be empty!"});
+                    }
+                    else if(!this.state.authorName){
+                        this.setState({hasError: true, errorMsg: "Author name field should not be empty!"});
+                    }
+                    else if(!this.state.publisher){
+                        this.setState({hasError: true, errorMsg: "Publisher name field should not be empty!"});
+                    }
+                    else if(!this.state.synopsis){
+                        this.setState({hasError: true, errorMsg: "Synopsis field should not be empty!"});
+                    }
+                    else if(!this.state.imageURL){
+                        this.setState({hasError: true, errorMsg: "Image URL field should not be empty!"});
+                    }
+                    else if(!this.state.bookCategory){
+                        this.setState({hasError: true, errorMsg: "Book category field should not be empty!"});
+                    }
+                    else if(!this.state.releaseDate){
+                        this.setState({hasError: true, errorMsg: "Release date field should not be empty!"});
+                    }
+                    else {   
+                        var data = {
+                                title: this.state.bookTitle,
+                                authorName: this.state.authorName,
+                                publisher: this.state.publisher,
+                                synopsis: this.state.synopsis,
+                                imageURL: this.state.imageURL,
+                                category: this.state.bookCategory,
+                                release_date: this.state.releaseDate
+                        }
+                        axios.post('http://localhost:8000/books', data)
+                            .then(response => {
+                                this.props.history.push('/');
+                                this.clearField();
+                            })
+                        }
+                }
+                else{
+                    console.log(response);
+                }
+            });
     }
 
     render() {
         return (
            <React.Fragment>
             <Header/>
+                <div style={{margin: "5%"}}>
+                <h2 style={{color: "red", fontWeight: "bold"}}>
+                    Disclaimer: This website do-not sell any product. 
+                    The payment gateway is purely for educational and demonstration purposes only. 
+                    If you are a visitor to website. Please do-not proceed to pay. 
+                    Owners of this website will not be liable for any kind of transaction.
+                </h2>
+                </div>
                 <Card>
                     <CardBody>
                     <div className="wrapper">
@@ -151,7 +171,11 @@ class BookUpload extends Component
                                         <Label for="releaseDate">Date:</Label>
                                         <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "releaseDate")}} value={this.state.releaseDate} id="releaseDate" name="releaseDate" placeholder="Release Date" type="date"/></Col>
                                     </FormGroup>
-                                    <Button style={{marginRight:"2%"}} onClick={this.submitBtnClick} type="submit">Submit</Button><Button type="reset">Cancel</Button>
+                                    <StripeCheckout stripeKey="pk_test_51KjknCJ7Yex7v5ZEHmXAWKGmjgAb6puHMpRArspKUCPBRV49C8MoU1BwrqjIMwupHAITKC1t0fRz0X95Z3DPzzHs00BK7Etw68" token={this.handleToken} amount={10 * 100}>
+                                        <Button style={{marginRight:"2%"}} type="submit">Submit</Button> 
+                                    </StripeCheckout>
+                                    <Button type="reset">Cancel</Button>
+
                                 </Form>
                             </div>
                         </div>    
