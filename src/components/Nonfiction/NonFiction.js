@@ -26,6 +26,7 @@ class NonFiction extends Component
                         let nFData = books;
                         this.setState({nonFictionData: this.state.nonFictionData.concat(nFData)});
                    }
+                   return books;
                 });
             });
     }

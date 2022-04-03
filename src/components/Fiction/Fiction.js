@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import {CardBody,CardGroup,CardTitle,CardImg,CardSubtitle,CardText,Button,Card} from "reactstrap";
+import {CardBody,CardGroup,CardTitle,CardImg,CardText,Button,Card} from "reactstrap";
 import axios from "axios";
 import Footer from "../Footer/Footer";
 import Header from '../Header/header';
@@ -26,6 +26,7 @@ class Fiction extends Component
                         let FData = books;
                         this.setState({fictionData: this.state.fictionData.concat(FData)});
                    }
+                   return books;
                 });
             });
     }

@@ -40,6 +40,7 @@ class Review extends React.Component {
                     if (review.bookId === book_id) {
                         this.setState({filteredReview: this.state.filteredReview.concat(review)});
                     }
+                    return review;
                 })  
         });
         

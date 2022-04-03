@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
-import { FormGroup,Col,Input,Button,Form,Row } from "reactstrap";
-import { withRouter } from "react-router-dom";
+import { FormGroup,Col,Input,Button,Form } from "reactstrap";
+import { withRouter, Link } from "react-router-dom";
 import './footer.css';
 
 class Footer extends Component 
@@ -58,22 +58,22 @@ class Footer extends Component
             <h5 className="title">Quick Links</h5>
             <ul>
               <li className="list-unstyled">
-                <a href="/home" style={{color:"black"}}>Home</a>
+                <Link to="/home" style={{color:"black"}}>Home</Link>
               </li>
               <li className="list-unstyled">
-                <a href="/book_upload" style={{color:"black"}}>Book Upload</a>
+                <Link to="/book_upload" style={{color:"black"}}>Book Upload</Link>
               </li>
               <li className="list-unstyled">
-                <a href="/children" style={{color:"black"}}>Children</a>
+                <Link to="/children" style={{color:"black"}}>Children</Link>
               </li>
               <li className="list-unstyled">
-                <a href="/non_fiction" style={{color:"black"}}>Fiction</a>
+                <Link to="/non_fiction" style={{color:"black"}}>Fiction</Link>
               </li>
               <li className="list-unstyled">
-                <a href="/fiction" style={{color:"black"}}>Non-Fiction</a>
+                <Link to="/fiction" style={{color:"black"}}>Non-Fiction</Link>
               </li>
               <li className="list-unstyled">
-                <a href="/signup" style={{color:"black"}}>Login | Sign-Up</a>
+                <Link to="/signup" style={{color:"black"}}>Login | Sign-Up</Link>
               </li>
             </ul>
           </MDBCol>
@@ -93,7 +93,7 @@ class Footer extends Component
       </MDBContainer>
       <div className="footer-copyright text-center py-3" style={{background:"#BED7D1"}} >
         <MDBContainer fluid style={{background:"#BED7D1",color:"black"}}>
-          &copy; {new Date().getFullYear()} Copyright: <a href="#" style={{color:"black"}}> ReadersChoice </a>
+          &copy; {new Date().getFullYear()} Copyright: <Link to="/" style={{color:"black"}}> ReadersChoice </Link>
         </MDBContainer>
       </div>
     </MDBFooter>

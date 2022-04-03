@@ -25,6 +25,7 @@ class Children extends Component
                         let childrenD = books;
                         this.setState({childrenData: this.state.childrenData.concat(childrenD)});
                    }
+                   return books;
                 });
             });
     }
