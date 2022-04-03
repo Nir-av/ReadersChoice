@@ -155,7 +155,7 @@ class Review extends React.Component {
 
                 <div className='part-3' style={{marginTop: "10%"}}>
                 <h2>Suggestedbooks</h2>
-                    <div className ='suggestedbooks'>
+                    {/* <div className ='suggestedbooks'> */}
                     <CardGroup>
                         {
                             this.state.booksData.slice(3,6).map(books => (
@@ -186,7 +186,7 @@ class Review extends React.Component {
                             ))
                         }
                     </CardGroup>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         <Footer/>

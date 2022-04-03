@@ -115,7 +115,7 @@ class BookUpload extends Component
                     <CardBody>
                     <div className="wrapper">
                         <div className="BookForm">
-                                <Form style={{paddingLeft:"15%"}}>
+                                <Form style={{paddingLeft:"15%",paddingRight:"15%"}}>
                                     <h2 className="text-left">Book Upload for review Form:</h2>
                                     {
                                         this.state.hasError && 
@@ -123,11 +123,11 @@ class BookUpload extends Component
                                                 {this.state.errorMsg}
                                             </Alert></Col>
                                     }
-                                    <FormGroup style={{backgroundColor: "#FDF6F0"}}>
-                                        <Label for="bookTitle" >Book Title:</Label>
+                                    <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
+                                        <Label for="bookTitle">Book Title:</Label>
                                         <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "bookTitle")}} value={this.state.bookTitle} id="bookTitle" name="bookTitle" placeholder="Enter Book Title" type="text"/></Col>
                                     </FormGroup>
-                                    <FormGroup style={{backgroundColor: "#FDF6F0"}}>
+                                    <FormGroup row style={{backgroundColor: "#FDF6F0"}}>
                                         <Label for="authorName">Author Name:</Label>
                                         <Col sm={8} style={{backgroundColor: "#FDF6F0"}}><Input onChange={(text) => {this.handleChange(text, "authorName")}} value={this.state.authorName} id="authorName" name="authorName" placeholder="Enter Author Name" type="text"/></Col>
                                     </FormGroup>

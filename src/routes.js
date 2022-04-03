@@ -4,7 +4,7 @@ import HomePage from "./components/Homepage/Homepage";
 import BookUpload from "./components/BookUpload/BookUpload";
 import Children from "./components/Children/Children";
 import Fiction from "./components/Fiction/Fiction";
-import NonFiction from "./components/Nonfiction/NonFiction";
+import NonFiction from "./components/NonFiction/NonFiction";
 import ReviewPage from "./components/ReviewPage/review";
 
 const routes = [

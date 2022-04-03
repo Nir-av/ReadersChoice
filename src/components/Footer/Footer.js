@@ -6,6 +6,32 @@ import './footer.css';
 
 class Footer extends Component 
 {
+  constructor(props){
+    super(props);
+    this.state={
+      email:""
+    }
+  }
+  handleChange = async (text, type) => {
+    switch (type) {
+        case 'email':
+            await this.setState({ email: text.target.value })
+            break
+        default:
+    }
+  }
+  subscribeBtnClicked=(e)=>{
+    e.preventDefault();
+    if(!this.state.email)
+    {
+      alert("Please Enter Email ID!!");
+    }
+    else
+    {
+      alert("Thanks for subscribing our Readers Choice. Visit Again!!");
+      this.setState({email:""});
+    }
+  }
     render() {
   return (
     <MDBFooter color="#F5C6AA" className="font-small pt-4 mt-4">
@@ -23,8 +49,8 @@ class Footer extends Component
                           {/* <Label for="exampleEmail" sm={1}>
                           Email
                           </Label> */}
-                          <Col sm={13} style={{background:"#F5C6AA"}}><Input id="exampleEmail" name="email" placeholder="Email" type="email"/></Col> 
-                          <Button style={{backgroundColor:"black"}}>Subscribe!</Button>    
+                          <Col sm={13} style={{background:"#F5C6AA"}}><Input id="email" onChange={(text) => {this.handleChange(text, "email")}} value={this.state.email} name="email" placeholder="Email" type="email"/></Col> 
+                          <Button style={{backgroundColor:"black"}} onClick={this.subscribeBtnClicked}>Subscribe!</Button>    
                   </FormGroup>
               </Form>
           </MDBCol>
@@ -67,7 +93,7 @@ class Footer extends Component
       </MDBContainer>
       <div className="footer-copyright text-center py-3" style={{background:"#BED7D1"}} >
         <MDBContainer fluid style={{background:"#BED7D1",color:"black"}}>
-          &copy; {new Date().getFullYear()} Copyright: <a href="#" style={{color:"black"}}> ReadersChoice.com </a>
+          &copy; {new Date().getFullYear()} Copyright: <a href="#" style={{color:"black"}}> ReadersChoice </a>
         </MDBContainer>
       </div>
     </MDBFooter>
