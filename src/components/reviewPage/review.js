@@ -78,7 +78,7 @@ class Review extends React.Component {
                 addReview: this.state.addReview
             }
             console.log(data);
-            axios.post('http://localhost:8000/booksReview', data)
+            axios.post('https://readerschoice-api.herokuapp.com/booksReview', data)
                 .then(response => window.location.reload(true))
         }
     }
